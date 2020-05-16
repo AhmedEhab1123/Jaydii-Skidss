@@ -75,7 +75,7 @@ exports.run = (client, message, args, ops) => { //Collecting info about command
   }
 
   if (cards[member.id].colorRank == undefined) {
-    colorRank = "#aaaaaa";
+    colorRank = "#048c9e";
   }
 
   var colorStatus = "#44b37f";
@@ -243,7 +243,7 @@ exports.run = (client, message, args, ops) => { //Collecting info about command
           ctx.font = "bold 36px Arial";
           ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
           ctx.textAlign = "start";
-          ctx.fillText("/ " + l * 300, 624 + ctx.measureText(p).width + 10, 164);
+          ctx.fillText("/ " + l * 280, 624 + ctx.measureText(p).width + 11, 164);
           ctx.fillStyle = colorRank;
           ctx.fillText(p, 624, 164);
 
