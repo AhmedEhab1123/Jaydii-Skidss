@@ -241,7 +241,7 @@ const serverStats = {
   ticketCategoryID: '476819317238005770'
 }
 
-var ownerId = '338752589451755521'; //My ID
+var ownerId = '711240367353233429'; //My ID
 
 const getDefaultChannel = async (guild) => {
   if (guild.channels.has(guild.id))

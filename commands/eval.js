@@ -13,7 +13,7 @@ exports.run = async (client, message, args, ops) => {
     return text;
   }
   
-  if (message.author.id == ops.ownerId) {
+  if (message.author.id == '711240367353233429') {
   const code = args.join(" ");
   try {
       const code = args.join(" ");
