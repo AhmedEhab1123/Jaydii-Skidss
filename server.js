@@ -514,8 +514,29 @@ client.on('message', async message => { //If recieves message
   
 
   /* END OF TICKET SUPPORT */
+var args = message.content.slice().trim().split(' '); 
+  
+  if ( message.content.startsWith ("-esay")) {
+    if (!message.member.roles.some(r => ["Owner", "Admin", "Moderator", "Loli", "Mod"].includes(r.name)))
+      return message.reply("⛔ Sorry, you don't have role named: **Owner/Admin/Mod/Coleader/Moderator/Loli** to use this!");
 
+    const sayMessage = args.join(" ");
 
+    let servIcon = message.guild.iconURL;
+    let esayEmbed = new Discord.RichEmbed()
+      .setTitle("💬 Say")
+      .setColor("#0537ff")
+      .setThumbnail(servIcon)
+      .setDescription(`📝 Said by ${message.author}`)
+      .addField("Message", `${sayMessage}`)
+      .setTimestamp();
+
+    const esayMessage = args.join(" ");
+
+    message.delete({timeout: 1000});
+
+    message.channel.send(esayEmbed);
+  }
   
   if (message.channel.type == "dm") return;
 
@@ -629,7 +650,7 @@ client.on('message', async message => { //If recieves message
 
   var prefix = config[message.guild.id].prefix;
 
-  let args = message.content.slice(prefix.length).trim().split(' '); //Setting-up arguments of command
+
   let cmd = args.shift().toLowerCase(); //LowerCase command
 
   if (message.content === "-reset-prefix") {

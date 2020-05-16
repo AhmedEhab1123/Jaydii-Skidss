@@ -1,43 +1,26 @@
-var fs = require('fs'); //FileSystem
-let config = JSON.parse(fs.readFileSync("./config.json", "utf8")); //Config file
+const errors = require("../utils/errors.js");
 
-exports.run = async (client, message, args, ) => { //Collecting info about command
-  const deleteCount = parseInt(args[0], 10);
+module.exports.run = (bot, message, args, tools) => {
 
-  if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send({
-    embed: {
-      "description": "Denied!",
-      "color": 0xff2222,
-      "title": "Error"
-    }
-  }).then(msg => {
-    if (config[message.guild.id].delete == 'true') {
-      msg.delete(config[message.guild.id].deleteTime);
-    }
-  });
-  
-  if (!deleteCount || deleteCount < 2 || deleteCount > 100)
-    return message.channel.send({
-      embed: {
-        "title": "Enter number between 2 and 100",
-        "color": 0xff2222
-      }
-    });
+  // This episode will cover purging messages from a channel.
+  if(!message.member.hasPermission('MANAGE_MESSAGES')) return errors.noPerms(message, "MANAGE_MESSAGES");
+  // First, we need to fetch the amount of messages a user wants to purge, this will be stored in args[0].
+  if (isNaN(args[0])) return message.channel.send('**Please supply a valid amount of messages to purge**');
+  // This checks if args[0] is NOT a number, if not it runs the return statement which sends a message in chat.
+  // We also need to check if the number is LESS THAN 100, since 100 is the max you can delete at once.
+  if (args[0] > 100) return message.channel.send('**Please supply a number less than 100**');
+  // This checks if args[0] is MORE THAN 100, if it is, it returns and sends a message.
 
-  const fetched1 = await message.channel.fetchMessages({
-    limit: deleteCount
-  });
-  message.channel.bulkDelete(fetched1)
-    .catch(error => message.reply(`Shit, errors: ${error}`));
-  message.channel.send({
-    embed: {
-      "description": "Bot is hungry...\n**Ate messages: " + deleteCount + "**",
-      "color": 16728064,
-      "image": {
-        "url": "https://media0.giphy.com/media/TYKOdOASPBVjW/giphy.gif"
-      } //https://cdn.glitch.com/88b80c67-e815-4e13-b6a0-9376c59ea396%2Fgiphy.gif?1531841627477
-    }
-  }).then(msg => {
-    msg.delete(5000);
-  });
+  // Now, we can delete the messages
+  message.channel.bulkDelete(args[0])
+    .then(messages => message.channel.send(`**Successfully deleted \`${messages.size}/${args[0]}\` messages**`).then(msg => msg.delete({
+      timeout: 5000
+    }))) // This sends how many messages they deleted to chat, we also want to delete this message. This deletes the message after 10000 milliseconds.
+
 }
+
+module.exports.help = { 
+name: "purge", 
+description: "", 
+usage: ""
+} 
