@@ -266,7 +266,7 @@ client.on('ready', () => { //Startup
   console.log("[LOG] Bot on! Started with " + client.users.size + " users and " + client.guilds.size + " guilds.");
 
   client.user.setStatus('online');
-  client.user.setActivity(`on ${client.users.size} users | -help`, {
+  client.user.setActivity(`tonto el de abajo`, {
     type: 'WATCHING'
   });
 });
@@ -278,7 +278,7 @@ client.on("disconnected", () => {
 });
 
 client.on('guildCreate', guild => { // If the Bot was added on a server, proceed
-  client.user.setActivity(`on ${client.users.size} users | y+help`, {
+  client.user.setActivity(`on ${client.users.size} users | -help`, {
     type: 'WATCHING'
   });
 

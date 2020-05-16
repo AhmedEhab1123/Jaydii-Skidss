@@ -17,7 +17,7 @@ exports.run = (bot, message, args) => {
     const embedStats = new Discord.RichEmbed()
       .setAuthor(bot.user.username)
       .setTitle("**Bot Stats** | Click to join support server")
-      .setFooter("Created by @☭[ɠʂ]𝔸𝕕𝕚𝟠𝟚𝟘ᴰᵉᵛ☭ ❤#8416  using discord.js")
+      .setFooter("Created by @☭[ɠʂ]𝔸𝕕𝕚𝟠𝟚𝟘ᴰᵉᵛ☭ ❤.#8416 Based on Verdugo created by Guillem0907#8042 with ❤. using discord.js")
       .setURL("https://discord.gg/ZZ8HuCZ")
       .setColor("RANDOM")
       .addField("• Mem Usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`, true)
@@ -35,4 +35,4 @@ exports.run = (bot, message, args) => {
     
     message.channel.send(embedStats);
   });
-};
+}; 
