@@ -24,6 +24,8 @@ module.exports.run = (bot, message, args, ops, PREFIX) => {
  - hug
  - gif <gname>
  - pat <mention | say something>
+ - cat 
+ - dog
 ﾠ`, `
 **Music**
  - play
