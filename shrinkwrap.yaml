@@ -38,6 +38,7 @@ dependencies:
   snekfetch: 4.0.4
   speech-to-text: 0.7.4
   superagent: 5.2.2
+  tesseract: 0.0.3
   urban-dictionary: 2.2.1
   weather-js: 2.0.0
   yt-search: 0.2.0
@@ -3063,6 +3064,13 @@ packages:
       node: '>=4.5'
     resolution:
       integrity: sha512-w2VwSrBoHa5BsSyH+KxEqeQBAllHhccyMFVHtGtdMpF4W7IRWfZjFiQceJPChOeTsSDVUpER2T8FA93pr0L+QA==
+  /tesseract/0.0.3:
+    dev: false
+    engines:
+      node: '>= 0.8.0'
+    requiresBuild: true
+    resolution:
+      integrity: sha1-/0udBb/uDZDT2TRQ6MZgaVT/Niw=
   /timed-out/4.0.1:
     dev: false
     engines:
@@ -3455,6 +3463,7 @@ specifiers:
   snekfetch: ^4.0.4
   speech-to-text: ^0.7.4
   superagent: ^5.2.2
+  tesseract: ^0.0.3
   urban-dictionary: ^2.2.1
   weather-js: ^2.0.0
   yt-search: ^0.2.0

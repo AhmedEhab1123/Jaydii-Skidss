@@ -32,6 +32,8 @@ const meme = require('./commands/meme.js');
 
 
 
+
+
 app.get("/", (request, response) => {
   response.sendStatus(200);
 });
