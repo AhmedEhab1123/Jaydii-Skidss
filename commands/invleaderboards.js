@@ -27,3 +27,7 @@ exports.run = async (client, message, args, tools) => {
     message.channel.send(embed);
     
 }
+
+module.exports.help = {
+  name: "invleaderboard"
+}
