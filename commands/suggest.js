@@ -9,8 +9,8 @@ exports.run = (client, message, args) => {
       embed: {
         "title": "Help",
         "fields": [{
-            "name": "Simple Poll (Yes/No)",
-            "value": "`poll` - this menu\n`poll <time> <question>` - poll with timed end. Time should be entered in seconds, default - 1 hour"
+            "name": "Suggest (Yes/No)",
+            "value": "`Suggest` - this menu\n`suggest <time> <question>` - poll with timed end. Time should be entered in seconds, default - 1 hour"
           },
           {
             "name": "Multi-choice Poll",
