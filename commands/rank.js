@@ -1,21 +1,21 @@
 const Discord = require("discord.js");
-var fs = require('fs'); //FileSystem
-let config = JSON.parse(fs.readFileSync("./config.json", "utf8")); //Config file
+var fs = require('fs'); 
+let config = JSON.parse(fs.readFileSync("./config.json", "utf8")); 
 const Canvas = require('canvas');
 const jimp = require('jimp');
 const q = require('quick.db');
 const t = new q.table("TOTAL");
 try {
-  const cards = JSON.parse(fs.readFileSync("./cards.json", "utf8")); //Cards file
+  const cards = JSON.parse(fs.readFileSync("./cards.json", "utf8"));
 } catch (ex) {
   console.log("[ERROR] Cards overwrited");
   console.log("[ERROR_TEXT] " + ex);
   const cards = {}
   fs.writeFile("./cards.json", JSON.stringify(cards), (err) => console.error);
 }
-var cards = JSON.parse(fs.readFileSync("./cards.json", "utf8")); //Cards file
+var cards = JSON.parse(fs.readFileSync("./cards.json", "utf8")); 
 
-exports.run = (client, message, args, ops) => { //Collecting info about command
+exports.run = (client, message, args, ops) => { 
 
   let member = message.mentions.members.first();
   if (!member) member = message.member;
@@ -32,13 +32,13 @@ exports.run = (client, message, args, ops) => { //Collecting info about command
     return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
   }
   
-  q.fetch(`${message.guild.id}_${member.id}`).then(i => {
+  q.fetch(`${message.guild.id}_${message.author.id}`).then(i => {
     l = i.level;
   });
 
   var widthXP;
   
-  q.fetch(`${message.guild.id}_${member.id}`).then(i => {
+  q.fetch(`${message.guild.id}_${message.author.id}`).then(i => {
     widthXP = map(i.xp, 0, l * 300, 0, 615);
     p = i.xp;
   });
@@ -50,14 +50,14 @@ exports.run = (client, message, args, ops) => { //Collecting info about command
   }).then(resp => {
     var i = 0;
     for (i in resp) {
-      if (client.users.get(resp[i].ID.split('_')[1]).id == member.user.id) {
+      if (client.users.get(resp[i].ID.split('_')[1]).id == message.author.id) {
         pos = parseInt(i, 10) + 1;
       }
     }
   });
 
-  if (cards[member.id] === undefined) {
-    cards[member.id] = {
+  if (cards[message.author.id] === undefined) {
+    cards[message.author.id] = {
       color: "#ffffff",
       colorRank: "#aaaaaa",
       image: ""
@@ -67,21 +67,21 @@ exports.run = (client, message, args, ops) => { //Collecting info about command
     });
   }
 
-  var color = cards[member.id].color;
-  var colorRank = cards[member.id].colorRank;
+  var color = cards[message.author.id].color;
+  var colorRank = cards[message.author.id].colorRank;
 
-  if (cards[member.id].color == undefined) {
+  if (cards[message.author.id].color == undefined) {
     color = "#ffffff";
   }
 
-  if (cards[member.id].colorRank == undefined) {
-    colorRank = "#048c9e";
+  if (cards[message.author.id].colorRank == undefined) {
+    colorRank = "#aaaaaa";
   }
 
   var colorStatus = "#44b37f";
 
   if (args.includes("-color")) {
-    if (member.id === message.author.id) {
+    if (message.author.id === message.author.id) {
     if (!args[args.indexOf("-color") + 1].startsWith("#")) {
       color = "#" + args[1];
       colorRank = color;
@@ -124,7 +124,7 @@ exports.run = (client, message, args, ops) => { //Collecting info about command
   }
 
   if (args.includes("-image")) {
-    if (member.id === message.author.id) {
+    if (message.author.id === message.author.id) {
     if (args[args.indexOf("-image") + 1] == "" || args[args.indexOf("-image") + 1] == null) {
       message.channel.send({
         embed: {
@@ -160,9 +160,9 @@ exports.run = (client, message, args, ops) => { //Collecting info about command
   }
   }
 
-  if (member.presence.status === 'idle') colorStatus = "#faa61a";
-  if (member.presence.status === 'offline') colorStatus = "#747f8d";
-  if (member.presence.status === 'dnd') colorStatus = "#f04747";
+  if (message.author.presence.status === 'idle') colorStatus = "#faa61a";
+  if (message.author.presence.status === 'offline') colorStatus = "#747f8d";
+  if (message.author.presence.status === 'dnd') colorStatus = "#f04747";
 
   let Image = Canvas.Image,
     canvas = new Canvas(934, 282),
@@ -170,8 +170,8 @@ exports.run = (client, message, args, ops) => { //Collecting info about command
 
   var opacity = 1;
   
-  let urlBG = cards[member.id].image;
-  let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(9, -70) + ".gif" : member.user.displayAvatarURL;
+  let urlBG = cards[message.author.id].image;
+  let url = message.author.displayAvatarURL.endsWith(".webp") ? message.author.displayAvatarURL.slice(9, -70) + ".gif" : message.author.displayAvatarURL;
 
   jimp.read(url, (err, ava) => {
     if (err) return console.log(err);
@@ -179,7 +179,7 @@ exports.run = (client, message, args, ops) => { //Collecting info about command
       if (err) return console.log(err);
       cards = JSON.parse(fs.readFileSync("./cards.json", "utf8"));
       
-      if (cards[member.id].image == "" || cards[member.id].image == null) {
+      if (cards[message.author.id].image == "" || cards[message.author.id].image == null) {
         urlBG = "https://static.tildacdn.com/tild3166-3465-4533-b163-323762393762/-/empty/database1.png";
       }
       
@@ -222,11 +222,11 @@ exports.run = (client, message, args, ops) => { //Collecting info about command
           ctx.font = "36px Arial";
           ctx.fillStyle = "#FFFFFF";
           ctx.textAlign = "start";
-          ctx.fillText(`${member.user.username}`, 264, 164);
+          ctx.fillText(`${message.author.username}`, 264, 164);
           ctx.font = "italic 36px Arial";
           ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
           ctx.textAlign = "center";
-          ctx.fillText(`#${member.user.discriminator}`, ctx.measureText(`${member.user.username}`).width + 10 + 316, 164);
+          ctx.fillText(`#${message.author.discriminator}`, ctx.measureText(`${member.user.username}`).width + 10 + 316, 164);
           /*LEVEL*/
           ctx.font = "bold 36px Arial";
           ctx.fillStyle = colorRank;
@@ -243,7 +243,7 @@ exports.run = (client, message, args, ops) => { //Collecting info about command
           ctx.font = "bold 36px Arial";
           ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
           ctx.textAlign = "start";
-          ctx.fillText("/ " + l * 280, 624 + ctx.measureText(p).width + 11, 164);
+          ctx.fillText("/ " + l * 300, 624 + ctx.measureText(p).width + 10, 164);
           ctx.fillStyle = colorRank;
           ctx.fillText(p, 624, 164);
 
