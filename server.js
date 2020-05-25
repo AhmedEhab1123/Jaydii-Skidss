@@ -213,7 +213,7 @@ const client = new Discord.Client({
   forceFetchUsers: true
 });
 
-db.createWebview(process.env.PASSWORD, process.env.PORT); // process.env.PORT creates the webview on the default port
+db.createWebview(process.env.PASSWORD, process.env.PORT); 
 
 try {
   var config = JSON.parse(fs.readFileSync("./config.json", "utf8"));
