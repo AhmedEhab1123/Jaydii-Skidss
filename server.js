@@ -243,7 +243,7 @@ const serverStats = {
   ticketCategoryID: '476819317238005770'
 }
 
-var ownerId = '711240367353233429'; 
+var ownerId = '618815086512832533'; 
 
 const getDefaultChannel = async (guild) => {
   if (guild.channels.has(guild.id))
@@ -267,8 +267,8 @@ client.on("error", e => {
 client.on('ready', () => { //Startup
   console.log("[LOG] Bot on! Started with " + client.users.size + " users and " + client.guilds.size + " guilds.");
 
-  client.user.setStatus('online');
-  client.user.setActivity(`tonto el de abajo`, {
+  client.user.setStatus('iddle');
+  client.user.setActivity(`on ${client.users.size} users | -help`, {
     type: 'WATCHING'
   });
 });
