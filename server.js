@@ -267,7 +267,7 @@ client.on("error", e => {
 client.on('ready', () => { //Startup
   console.log("[LOG] Bot on! Started with " + client.users.size + " users and " + client.guilds.size + " guilds.");
 
-  client.user.setStatus('iddle');
+  client.user.setStatus('dnd');
   client.user.setActivity(`on ${client.users.size} users | -help`, {
     type: 'WATCHING'
   });
