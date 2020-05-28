@@ -15,7 +15,7 @@ const run = module.exports.run = async (client, msg, args) => {
     let postMsg = await msg.channel.send("**Please Wait...**");
     let info = new Discord.RichEmbed()
         .setColor('RANDOM') 
-        .setDescription('**Loli Stats**')
+        .setDescription('**ZeroBot Stats**')
         .addField('📂 Total Servers', `**${client.guilds.size}** guilds.`)
         .addField('📡 Total Channels', `**${client.channels.size}** channels.`)
         .addField('👥 Total Users', `**${client.users.size}** other users.`)
