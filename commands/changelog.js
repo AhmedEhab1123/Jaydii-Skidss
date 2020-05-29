@@ -1,69 +1,36 @@
-const Discord = require('discord.js'),
-  db = require('quick.db'),
-  ms = require('parse-ms');
+const Discord = require("discord.js");
+const run = module.exports.run = async (client, msg, args) => {
+    const os = require('os');
+    const arch = os.arch()
+    const used = process.memoryUsage().heapUsed / 1024 / 1024;
+  
+    let totalSeconds = process.uptime();
+    let realTotalSecs = Math.floor(totalSeconds % 60);
+    let days = Math.floor((totalSeconds % 31536000) / 86400);
+    let hours = Math.floor((totalSeconds / 3600) % 24);
+    let mins = Math.floor((totalSeconds / 60) % 60);
+    var cpu = process.cpuUsage().system / 1024 / 1024;
+    var cpu_usage = Math.round(cpu * 100) / 100;
+    
+    let postMsg = await msg.channel.send("**Please Wait...**");
+    let info = new Discord.RichEmbed()
 
-// parseTime function
-function parseTime(milliseconds) {
+       .setDescription("Version 1.1:")
+      .setColor('RANDOM')
+      .addField("👑 Creator", "<@!618815086512832533> | Adi820")
+      .addField("📑 **Usefull link**",  "[Invite me](https://discord.com/oauth2/authorize?client_id=618906329976799243&scope=bot&permissions=2146958847) | [Vote me]() | [Support Server](https://discord.gg/zFFGCSN)") 
+      .setTimestamp()
+      .setFooter(`Requested by: ${msg.author.tag}`)
 
-  // Declare Variables
-  let string = '',
-    obj = ms(Date.now() - milliseconds);
-
-  // Check Days
-  if (obj.days === 1) string += ` ${obj.days} day `
-  else if (obj.days > 1) string += ` ${obj.days} days `
-
-  // Check Hours
-  if (obj.hours === 1) string += `${obj.hours} hour `
-  else if (obj.hours > 1) string += `${obj.hours} hours `
-
-  // Check Minutes
-  if (obj.minutes === 1) string += `${obj.minutes} minute `
-  else if (obj.minutes > 1) string += `${obj.minutes} minutes `
-
-  // Append Text
-  if (string === '') string = 'Just now'
-  else string += 'ago'
-
-  return string;
-
-}
-
-module.exports.run = async (bot, message, args, ops, tools) => {
-
-  // Fetch Changelog Entries
-  let entries = await db.fetch('changelog');
-
-  // Create Embed
-  const embed = new Discord.RichEmbed()
-    .setColor(0xffffff)
-
-  // If none found, return
-  if (entries === null) {
-    embed.setFooter('No entries found!');
-    return message.channel.send(embed);
-  }
-
-  // Only display 25 most recent entries
-  if (entries instanceof Array) entries = entries.slice(-25);
-
-  // Compile
-  let changelog = '';
-  for (var i in entries.reverse()) {
-    changelog += `**\`${parseTime(entries[i].timestamp)}\`** | *${entries[i].entry}*\n`
-  }
-
-  // Configure Embed
-  embed.setTitle(`New Changelog, Added Or Fixed Commands (${entries.length})`)
-    .setDescription(changelog)
-
-  // Send Embed
-  message.channel.send(embed)
-
-}
-
-module.exports.help = { 
-name: "changelog", 
-description: "", 
-usage: ""
+         setTimeout(() => {
+         postMsg.edit(info)
+          }, 1000);
 } 
+
+module.exports.help = {
+    name: 'serverinfo', 
+    aliases: ['servers'],
+    ownerOnly: false,
+    description: 'bot server info',
+    usage: ''
+}
