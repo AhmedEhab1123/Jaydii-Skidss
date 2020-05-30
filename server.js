@@ -473,6 +473,10 @@ client.on('message', async message => { //If recieves message
 
 	}
   
+  if(message.content.startsWith('-say @everyone')) {
+    message.channel.send('I cant mention everyone')
+    message.delete
+  }
 
 
 	/* The functions are just for making the work simple and easy for you, you can use it if you want. or, remove it.*/

@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
       if(!saying) return message.reply(`please, give me a text`)
       message.delete();
       message.channel.send(saying);
-      
+      disableMentions: 'everyone'
 
 }
 
