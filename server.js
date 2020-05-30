@@ -475,6 +475,7 @@ client.on('message', async message => { //If recieves message
   
   if(message.content.startsWith('-say @everyone')) {
     message.channel.send('I cant mention everyone')
+    message.channel.send('-purge 3')
     message.delete
   }
 
