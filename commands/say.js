@@ -10,7 +10,15 @@ module.exports.run = async (bot, message, args) => {
       message.channel.send(`${saying}` , {disableMentions:'everyone'});
       
   }
-    
+    let here = args.join(" ");
+  if(message.content.startsWith('-say @here')){
+      if(!everyone) return message.reply(`i cant mention here`, )
+      message.delete();
+      disableMentions: 'everyone, here'
+      message.channel.send(`${saying}` , {disableMentions:'here'});
+      
+  }  
+  
       let saying = args.join(" ");
       if(!saying) return message.reply(`please, give me a text`, )
       message.delete();
