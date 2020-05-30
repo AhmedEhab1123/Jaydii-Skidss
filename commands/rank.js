@@ -38,7 +38,7 @@ exports.run = (client, message, args, ops) => {
 
   var widthXP;
   
-  q.fetch(`${message.guild.id}_${member.id}`).then(i => {
+  q.fetch(`${message.guild.id}_${message.author.id}`).then(i => {
     widthXP = map(i.xp, 0, l * 300, 0, 615);
     p = i.xp;
   });
