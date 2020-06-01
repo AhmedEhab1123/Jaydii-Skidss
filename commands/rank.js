@@ -50,7 +50,7 @@ exports.run = (client, message, args, ops) => {
   }).then(resp => {
     var i = 0;
     for (i in resp) {
-      if (client.users.get(resp[i].ID.split('_')[1]).id == message.author.id) {
+      if (message.author.get(resp[i].ID.split('_')[1]).id == message.author.id) {
         pos = parseInt(i, 10) + 1;
       }
     }
