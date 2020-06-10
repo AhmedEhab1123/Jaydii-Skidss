@@ -19,7 +19,7 @@
     "figlet": "^1.2.0",
     "fortnite": "^4.1.1",
     "google-translate-api": "^2.3.0",
-    "google-tts-api": "^0.0.3",
+    "google-tts-api": "^0.0.4",
     "jimp": "^0.5.3",
     "mathjs": "^5.1.2",
     "moment": "^2.22.2",
