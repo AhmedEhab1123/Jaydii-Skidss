@@ -1,8 +1,10 @@
+exports.run = async (bot, message, args) => {
+
 const {RichEmbed} = require("discord.js");
 const { stripIndents } = require("common-tags"); 
 
 const fetch = require("node-fetch")
-  exports.run = async (client, message, args) => {
+  
     const name = args.join(" ");
     
     if(!name) {
