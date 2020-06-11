@@ -7,14 +7,15 @@ const fetch = require("node-fetch")
     
     if(!name) {
       return message.reply("Maybe it's useful to actually search for someone...");
-      .then(m => m.delete(5000))
+          
     }
+    const url = 'https://instagram.com/${name}/?__a=1';
+    const res = fetch(url).then(url => url.json());
+    
+    console.log(res);
   }
 module.exports = {
-  name: "instagram",
-  aliases: ["insta"],
-  category: "info",
-  description: "Find ot some nice instagram stadistics"
-
+  name: "insta",
+  aliases: ['insta']
 }
 
