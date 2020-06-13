@@ -18,7 +18,7 @@ const run = module.exports.run = async (client, msg, args) => {
        .setDescription("Bot Info:")
       .setColor('RANDOM')
       .addField(":robot: Bot Name", `${client.user.tag}`)
-      .addField("👑 Creator", "<@!618815086512832533> | Adi820")
+      .addField("👑 Creator", "<@!618815086512832533> | Adi820 ")
       .addField("🗓️ Created At", `${client.user.createdAt}`)
       .addField('<:nodejs:446922023529086976> Node', `${process.version}`)
       .addField('<:nodejs:446922023529086976> Library', 'discord.js')
