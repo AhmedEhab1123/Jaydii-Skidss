@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args, ops, PREFIX) => {
  const embed = new Discord.RichEmbed()
     .setColor(0xf44336)
     .setTitle("Invite | Support:") 
-    .setDescription("[Invite me](https://discordapp.com/oauth2/authorize?client_id=618906329976799243&scope=bot&permissions=2146958847) | [Vote me]() | [Support server](https://discord.gg/uAhu3ub)")    
+    .setDescription("[Invite me](https://discord.com/api/oauth2/authorize?client_id=723558381570359327&permissions=8&scope=bot) | [Vote me]() | [Support server](ttps://discord.gg/Q2At3nb)")    
     .addField(`Found any bug?`, `Usage: ${PREFIX}bug <specify a bug>`) 
     .setFooter("Thanks for support | Created By Adi820");
   setTimeout(() => {
