@@ -3,69 +3,71 @@ const Discord = require("discord.js")
 module.exports.run = (bot, message, args, ops, PREFIX) => {
       let pages = [`
 **General Commands**
- - help
- - helphere
- - botinfo
- - bug
- - userinfo
- - serverinfo
- - stats
- - ping
- - report
- - invite
+ **-help
+ -botinfo
+ -bug
+ -userinfo
+ -serverinfo
+ -stats
+ -ping
+ -report
+ -invite**
 `, `
 **Image**
- - slap
- - avatar
- - yesorno
- - meme
- - bunny
- - kiss
- - hug
- - gif <gname>
- - pat <mention | say something>
- - cat 
- - dog
+ **-slap
+ -avatar
+ -yesorno
+ -meme
+ -bunny
+ -kiss
+ -hug
+ -gif <gname>
+ -pat <mention | say something>
+ -cat 
+ -dog**
 ﾠ`, `
 **Music**
- - play
- - pause
- - resume
- - skip
- - stop
- - np
- - queue
- - volume
+ **-play
+ -pause
+ -resume
+ -skip
+ -stop
+ -np
+ -queue
+ -volume**
 ﾠ`, `
 **Utility & Fun**
- - hastebin <text>
- - calculator <number>
- - rps <rock|paper|scissors>
- - discrim <number>
- - fmk <mention>
- - asciify <messages>
- - embed <messages>
- - emojify <messages>
- - ask <question>
- - say <messages>
- - weather <location>
+ **-hastebin <text>
+ -calculator <number>
+ -rps <rock|paper|scissors>
+ -discrim <number>
+ -fmk <mention>
+ -asciify <messages>
+ -embed <messages>
+ -emojify <messages>
+ -ask <question>
+ -say <messages>
+ -weather <location>
+ -flip
+ -ascii <mention>**
 ﾠ`, `
 **Moderator & Developer**
- - ban @mention <reason>
- - kick @mention <reason>
- - mute @mention <reason>
- - unmute @mention <reason>
- - warn @mention <reason>
- - esay <messages>
- - purge <size>
-  Note: For Mute Command, Please Create Some Role Named "**Muted**"
+ **-ban @mention <reason>
+ -kick @mention <reason>
+ -mute @mention <reason>
+ -unmute @mention <reason>
+ -warn @mention <reason>
+ -esay <messages>
+ -purge <size>**
+  
+Note: For Mute Command, Please Create Some Role Named "**Muted**"
 ﾠ`];
        let page = 1;
 
        const embed = new Discord.RichEmbed()
        .setDescription(pages[page-1])
        .setColor('RANDOM')
-       .setFooter(`Page ${page} Of ${pages.length} | © Adi820`)
+       .setFooter(`Page ${page} Of ${pages.length} | Jaydii`)
 
     message.channel.send(embed).then(msg => {
       msg.react(`⏪`).then( r => {
@@ -79,7 +81,7 @@ module.exports.run = (bot, message, args, ops, PREFIX) => {
           page--;
           embed.setDescription(pages[page-1]);
           embed.setTimestamp()
-          embed.setFooter(`Page ${page} Of ${pages.length} | © Adi820`);
+          embed.setFooter(`Page ${page} Of ${pages.length} | Jaydii`);
           msg.edit(embed)
         })
         forwards.on('collect', r => {
@@ -87,7 +89,7 @@ module.exports.run = (bot, message, args, ops, PREFIX) => {
           page++;
           embed.setDescription(pages[page-1]);
           embed.setTimestamp()
-          embed.setFooter(`Page ${page} Of ${pages.length} | © Adi820`);
+          embed.setFooter(`Page ${page} Of ${pages.length} | Jaydii`);
           msg.edit(embed)
         })
       })
