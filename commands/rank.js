@@ -45,7 +45,7 @@ exports.run = (client, message, args, ops) => {
 
   var pos = 0;
   
-  t.startsWith(`${message.guild.id}_`, {                  JAYDIII X LEGEND 28/06/2020
+  t.startsWith(`${message.guild.id}_`, {                  
     sort: '.data'
   }).then(resp => {
     var i = 0;
