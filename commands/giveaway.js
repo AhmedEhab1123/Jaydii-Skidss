@@ -225,7 +225,7 @@ exports.config = {
     { name: 'reroll', type: String, alias: 'r' },
     { name: 'end', type: String, alias: 'e' }
   ],
-  ownerOnly: false
+
 };
 
 exports.help = {

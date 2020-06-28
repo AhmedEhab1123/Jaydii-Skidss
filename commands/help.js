@@ -58,10 +58,13 @@ module.exports.run = (bot, message, args, ops, PREFIX) => {
  -unmute @mention <reason>
  -warn @mention <reason>
  -esay <messages>
- -purge <size>**
+ -purge <size>
   
 Note: For Mute Command, Please Create Some Role Named "**Muted**"
-ﾠ`];
+ﾠ`, `
+**NSFW Commands
+-lewd**
+`];
        let page = 1;
 
        const embed = new Discord.RichEmbed()
