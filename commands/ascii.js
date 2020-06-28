@@ -3,7 +3,7 @@ var fs = require('fs'); //FileSystem
 let conf = JSON.parse(fs.readFileSync("./config.json", "utf8")); //Config file
 
 exports.run = (client, message, args) => {
-  var maxLen = 14 // You can modify the max characters here
+  var maxLen = "100" // You can modify the max characters here
 
   if (args.join(' ').length > maxLen) return message.channel.send({
     embed: {
