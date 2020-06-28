@@ -146,7 +146,7 @@ app.post('/getServer', function(req, res) {
     body = JSON.parse(body);
 
       var id = body.id;
-      const data = '{ "prefix": "-", "delete": "true", "deleteTime": 10000, "volume": 100, "maxVolume": 200, "djonly": false, "djroles": [], "levelup": false }'
+      const data = { "prefix": "-", "delete": "true", "deleteTime": 10000, "volume": 100, "maxVolume": 200, "djonly": false, "djroles": [], "levelup": false }
       
       if (body === null) {
         writeServerData(id, JSON.parse(data));
