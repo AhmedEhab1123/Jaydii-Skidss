@@ -8,7 +8,7 @@ module.exports.run = (bot, message, args) => {
 
     weather.find({search: city, degreeType: 'C'}, function(err, result) {
         if (err) {
-            message.channel.send("**${arg}** Isnt inside my query, please check again")
+            message.channel.send(`**${args}** Isnt inside my query, please check again`)
             console.log(err.stack)
             return;
         }
