@@ -1,1 +1,22 @@
-{"684864192762609746":{"prefix":"-","delete":"true","deleteTime":10000,"volume":100,"maxVolume":200,"djonly":false,"djroles":[],"levelup":false},"722167453089529936":{"prefix":"-","delete":"true","deleteTime":10000,"volume":100,"maxVolume":200,"djonly":false,"djroles":[],"levelup":false}}
+{
+  "684864192762609746": {
+    "prefix": "-",
+    "delete": "true",
+    "deleteTime": 10000,
+    "volume": 100,
+    "maxVolume": 200,
+    "djonly": false,
+    "djroles": [],
+    "levelup": false
+  },
+  "722167453089529936": {
+    "prefix": "!",
+    "delete": "true",
+    "deleteTime": 10000,
+    "volume": 100,
+    "maxVolume": 200,
+    "djonly": false,
+    "djroles": [],
+    "levelup": false
+  }
+}

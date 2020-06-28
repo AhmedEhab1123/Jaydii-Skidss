@@ -146,7 +146,7 @@ app.post('/getServer', function(req, res) {
     body = JSON.parse(body);
 
       var id = body.id;
-      const data = { "prefix": "-", "delete": "true", "deleteTime": 10000, "volume": 100, "maxVolume": 200, "djonly": false, "djroles": [], "levelup": false }
+      const data = { "prefix": "!", "delete": "true", "deleteTime": 10000, "volume": 100, "maxVolume": 200, "djonly": false, "djroles": [], "levelup": false }
       
       if (body === null) {
         writeServerData(id, JSON.parse(data));
@@ -287,7 +287,7 @@ client.on('guildCreate', guild => { // If the Bot was added on a server, proceed
   var chan = client.channels.get("471603875749691393");
 
   config[guild.id] = {
-    prefix: '-',
+    prefix: '!',
     delete: 'true',
     deleteTime: 10000,
     volume: 100,
@@ -541,7 +541,7 @@ client.on('message', async message => { //If recieves message
 
   if (config[message.guild.id] == undefined) {
     config[message.guild.id] = {
-      prefix: '-',
+      prefix: '!',
       delete: 'true',
       deleteTime: 10000,
       volume: 100,
@@ -636,11 +636,11 @@ client.on('message', async message => { //If recieves message
   let cmd = args.shift().toLowerCase(); //LowerCase command
 
   if (message.content === "-reset-prefix") {
-    config[message.guild.id].prefix = '-';
+    config[message.guild.id].prefix = '!';
     fs.writeFile("./config.json", JSON.stringify(config), (err) => console.error);
     message.channel.send({
       embed: {
-        "title": "Prefix - -",
+        "title": "Prefix !",
         "color": 0x22ff22
       }
     });
