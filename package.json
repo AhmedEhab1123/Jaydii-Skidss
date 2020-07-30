@@ -53,20 +53,6 @@
     "tesseract": "^0.0.3"
   },
   "engines": {
-    "node": "8.x"
-  },
-  "repository": {
-    "url": "https://glitch.com/edit/#!/expo-bot"
-  },
-  "license": "MIT",
-  "keywords": [
-    "node",
-    "glitch",
-    "express",
-    "discord",
-    "discord.js",
-    "jarvis",
-    "expo",
-    "bot"
-  ]
+    "node": "12.x"
+  }
 }
