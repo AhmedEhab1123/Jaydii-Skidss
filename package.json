@@ -13,7 +13,7 @@
     "cpu-stat": "^2.0.1",
     "currency-formatter": "^1.5.2",
     "dblapi.js": "^2.3.0",
-    "discord.js": "^11.4.2",
+    "discord.js": "^12.2.0",
     "discord.js-commando": "^0.10.0",
     "express": "^4.16.4",
     "figlet": "^1.2.0",

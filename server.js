@@ -280,7 +280,7 @@ client.on("disconnected", () => {
 });
 
 client.on('guildCreate', guild => { // If the Bot was added on a server, proceed
-  client.user.setActivity(`on ${client.users.size} users | -help`, {
+  client.user.setActivity(`${client.users.size} users | -help`, {
     type: 'WATCHING'
   });
 
